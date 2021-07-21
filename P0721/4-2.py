@@ -1,6 +1,6 @@
 # 시각 : 시각에서 3이 포함된 시간 다 구하기
 #전형적인 완전탐색 문제(Brute Forcing)
-#가능한 경우의 수를 모두 검사해보는 탐색 방법
+#가능한 경우의 수를 모두 검사해보는 탐색 방법이다
 
 # h입력 받기
 h = int(input())
@@ -13,3 +13,4 @@ for i in range(h+1):
             if '3' in str(i) + str(j) + str(k):
                 count += 1
 print(count)
+
