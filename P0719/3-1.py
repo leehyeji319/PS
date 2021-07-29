@@ -1,5 +1,5 @@
 #그리디 - 거스름돈 구하기 
-n = 1269
+n = 1260
 count = 0
 
 # 큰 단위의 화폐부터 차례대로 확인하기 
@@ -10,3 +10,14 @@ for coin in array:
     n %= coin 
   
 print(count)
+
+
+# n = 1260
+# count = 0
+
+# coin_types = [500, 100, 50, 10]
+
+# for coin in coin_types:
+#     count += n // coin
+#     n %= coin
+# print(count)
