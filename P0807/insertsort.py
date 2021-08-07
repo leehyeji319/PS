@@ -12,3 +12,5 @@ for i in range(1, len(array)): #1 = 두번째 원소부터 시작
         else: #자기보다 작은 데이터를 만나면 그 위치에서 멈춤
             break;
 print(array)
+
+#삽입정렬 시간 복잡도 O(n2) 반복문이 두번 중첩됏으니까
