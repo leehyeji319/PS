@@ -14,6 +14,6 @@ def quick_sort(array):
     right_side = [x for x in tail if x > pivot] # 분할된 오른쪽 부분
 
     # 분할 이후 왼쪽 부분과 오른쪽 부분에서 각각 저렬 수행하고, 전체 리스트 반환
-    return quick_sort(left_side) + [pivot] + quick_sort(right_side)
+    return quick_sort(left_side) + [pivot] + quick_sort(right_side) #오른쪽 결과 리스트 붙여주고
 
 print(quick_sort(array))
