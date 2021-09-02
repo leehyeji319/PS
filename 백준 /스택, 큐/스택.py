@@ -6,7 +6,7 @@ n = int(sys.stdin.readline())
 stack = [] 
 for _ in range(n):
     order = sys.stdin.readline().split()
-
+    
     if order[0] == 'push':
         stack.append(order[1])
 
