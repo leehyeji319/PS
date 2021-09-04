@@ -7,3 +7,5 @@ def solution(array, commands):
         arr.sort()
         answer.append(arr[command[2] - 1])
     return answer
+
+# 프로그래머스 lv 1
