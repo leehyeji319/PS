@@ -22,3 +22,5 @@ def solution(answers):
         a.append(3)
     
     return a
+
+# enumerate 쓰임 기억하기
