@@ -23,3 +23,5 @@ for i in range(N):
 
 for i in op:
     print(i)
+
+# ㅅㅡ태ㄱ 수ㄹ
