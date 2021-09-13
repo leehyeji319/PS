@@ -14,9 +14,7 @@ def solution(scoville, K):
             min_2 = heapq.heappop(scoville)
             heapq.heappush(scoville, min_1 + (min_2 * 2 ))
             answer += 1
-    if scoville[0] > K:
+    if scoville[0] >= K:
         return answer
     else:
         return -1
-
-solution([1, 2, 3, 9, 10, 12], 7)
