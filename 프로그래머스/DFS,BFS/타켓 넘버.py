@@ -10,3 +10,5 @@ def solution(numbers, target):
 
         parents = child
     return parents.count(target)
+
+    
