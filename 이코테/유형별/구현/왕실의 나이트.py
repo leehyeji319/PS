@@ -1,4 +1,4 @@
-now_location = input()
+now_location = input() 
 row = int(now_location[1]) # 행 숫자로 
 column = int(ord(now_location[0])) - int(ord('a')) + 1 # 열을 유니코드 값으로 바꾼후 숫자로 변환
 
