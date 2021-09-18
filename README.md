@@ -12,6 +12,12 @@
 
 </br>
 
+### 공부 방법 
+* BOJ
+* Programmers
+* 이코테
+
+
 ### 참고
 
 ![image](https://user-images.githubusercontent.com/50399088/130107707-4e09b0c3-7a65-405d-937b-acf3e06081e8.png)
