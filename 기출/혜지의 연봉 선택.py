@@ -23,3 +23,5 @@ def solution(list):
     return answer[2]
 
 solution([["10/15 11/6 3000"], ["2/2 2/3 3000"], ["3/7 3/19 10000"]])
+
+# 롯정 이번
