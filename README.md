@@ -13,8 +13,8 @@
 </br>
 
 ### 공부 방법 
-* BOJ
-* Programmers
+* BOJ 문제 
+* Programmers 문제
 * 이코테
 
 
