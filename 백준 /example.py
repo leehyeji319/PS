@@ -6,3 +6,6 @@ while 1:
         print(A + B)
     except:
         break
+
+
+# 복습
