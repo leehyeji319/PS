@@ -1,13 +1,10 @@
 import sys
+n = int(input())
 
-arr = []
-remain = []
+score = list(map(int, sys.stdin.readline().split()))
+m = max(score)
+new_score = []
+for i in score:
+    new_score.append(float(i) / float(m) * 100)
 
-for i in range(10):
-    a = int(sys.stdin.readline().rstrip())
-    arr.append(a)
-
-for j in arr:
-    remain.append(j % 42)
-
-print(len(set(remain)))
+print(float(sum(new_score)) / n)
