@@ -1,6 +1,9 @@
-n = int(input())
+A = int(input())
+B = int(input())
+C = int(input())
 
-arr = list(map(int, input().split()))
+mul_list = list(map(int, str(A*B*C)))
 
-print(min(arr))
-print(max(arr))
+for i in range(10):
+    print(mul_list.count(i))
+
