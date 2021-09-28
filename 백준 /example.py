@@ -1,11 +1,6 @@
-import sys
+n = int(input())
 
-while 1:
-    try:
-        A, B = map(int, sys.stdin.readline().split())
-        print(A + B)
-    except:
-        break
+arr = list(map(int, input().split()))
 
-
-# 복습
+print(min(arr))
+print(max(arr))
