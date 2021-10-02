@@ -9,4 +9,4 @@ for a in arr:
 
 s = s.replace(" ", "")
 print(len(s) + cnt)
-        
+        adfasdfs
