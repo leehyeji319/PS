@@ -1,5 +1,5 @@
 while True:
-    str = input()
+    str = inputZX
     stack = []
     if str == ".":
         break
