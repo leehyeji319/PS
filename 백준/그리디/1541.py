@@ -21,6 +21,7 @@ if '-' in op:
 
     for j in range(index + 1, len(formula)):
         result -= formula[j]
+        
     print(result)
 
 else:
