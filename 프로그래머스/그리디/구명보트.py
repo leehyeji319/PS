@@ -8,7 +8,8 @@ def solution(people, limit):
             left += 1
         right -= 1
         answer += 1
-    return answer 
-
+    if left == right: answer+=1
+        
+    return answer
 
 print(solution([70, 50, 80, 50], 100))
