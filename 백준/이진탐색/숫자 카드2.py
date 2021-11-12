@@ -25,7 +25,7 @@ find_arr = list(map(int, sys.stdin.readline().split()))
 r = []
 
 for a in find_arr:
-    result = binary_search(arr, a, 0, len(arr) - 1)
+    result = binary_search(arr, a, 0, len(arr) - 1) # set하고 난 이후니까 길이가 다름..
     if result == 0:
         r.append(0)
     else:
