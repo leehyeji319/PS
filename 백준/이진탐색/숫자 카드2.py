@@ -33,3 +33,5 @@ for a in find_arr:
 
 for i in r:
     print(i, end=' ')
+    
+# 더 간단하게 만들어보기
