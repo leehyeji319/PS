@@ -13,11 +13,8 @@ n = int(input())
 l = sorted(list(map(int, input().split())))
 m = int(input())
 find_l = list(map(int, input().split()))
-answer = []
 for f in find_l:
     result = binary_search(l, f, 0, n - 1)
     if result == 1:
-        answer.append('yes')
-    else: answer.append('no')
-for i in answer:
-    print(i, end=' ')
+        print('yes', end=' ')
+    else: print('no', end=' ')
