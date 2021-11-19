@@ -13,3 +13,4 @@ if len(prime) > 0:
     print(min(prime))
 else:
     print(-1)
+# 1
