@@ -1,4 +1,3 @@
-
 x_ = []
 y_ = []
 for i in range(3):
