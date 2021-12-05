@@ -11,3 +11,5 @@ def fibo(x):
     d[x] = fibo(x - 1) + fibo(x - 2)
     return d[x]
 fibo(6)
+
+# 메모이제이션
