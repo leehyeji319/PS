@@ -1,3 +1,4 @@
+## 그냥 log V2
 import sys
 input = sys.stdin.readline
 INF = int(1e9)
@@ -10,6 +11,7 @@ distance = [INF] * (n + 1)
 
 for _ in range(m):
     a, b, c = map(int, input().split())
+    # a노드에서 b노드로 가는 비용이 c
     graph[a].append((b, c))
     
 def get_smallest_node():
