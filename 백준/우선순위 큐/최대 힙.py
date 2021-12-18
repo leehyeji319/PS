@@ -1,10 +1,10 @@
-#https://www.acmicpc.net/problem/11279
 import heapq
+import sys
 
 n = int(input())
 h = []
 for i in range(n):
-    a = int(input())
+    a = int(sys.stdin.readline())
     if a != 0:
         heapq.heappush(h, (-a))
     else:
