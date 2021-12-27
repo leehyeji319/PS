@@ -1,3 +1,7 @@
+# 시간초과
+# binary search 방법이 아니잔아 다시풀기
+# LIS 는 이코테 - DP - 병사 배치 문제 참고
+
 N = int(input())
 arr = list(map(int, input().split()))
 
