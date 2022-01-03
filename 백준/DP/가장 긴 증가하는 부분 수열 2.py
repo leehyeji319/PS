@@ -13,3 +13,5 @@ for i in range(N):
             dp[i] = max(dp[i], dp[j] + 1)
             
 print(max(dp))
+
+# 뒤집지 않은 문제 
