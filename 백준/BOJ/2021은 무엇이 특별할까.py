@@ -12,4 +12,3 @@ for i in range(0, len(primes) - 1):
     if primes[i] * primes[i + 1] > n:
         print(primes[i] * primes[i + 1])
         exit(0)
-    
