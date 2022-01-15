@@ -16,5 +16,5 @@ for n in range(N):
 for i in c:
     for j in i:
         print(j, end=' ')
-    print()   
-        
+    print()
+# ㅎㅐㅇ려ㄹ곱셈
