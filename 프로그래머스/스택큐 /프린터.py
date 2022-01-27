@@ -10,17 +10,16 @@ def solution(priorities, location):
             idx += 1
         elif priorities[idx % l] == m:
             if idx % l == location:
-                priorities[idx % l] = 0
-                idx += 1
                 cnt += 1
                 answer = cnt
+                break
             else: 
                 priorities[idx % l] = 0
                 idx += 1
                 cnt += 1
                 
         m = max(priorities)
-        if sum(priorities) == 0:
-            break
-    
+       
     return answer
+
+print(solution([1, 1, 9, 1, 1, 1], 0))
