@@ -6,4 +6,4 @@ def solution(phone_book):
             answer = False
     return answer
 
-print(solution(["123","456","789"]))
+#print(solution(["123","456","789"]))
