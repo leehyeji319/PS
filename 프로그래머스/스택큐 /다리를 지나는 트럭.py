@@ -32,4 +32,4 @@ def solution(bridge_length, weight, truck_weights):
     return time
         
 
-print(solution(100, 10, [10]))
+#print(solution(100, 10, [10]))
