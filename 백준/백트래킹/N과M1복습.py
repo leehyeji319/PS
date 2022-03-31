@@ -1,6 +1,3 @@
-from gettext import dpgettext
-
-
 n, m = map(int, input().split())
 solve = []
 
