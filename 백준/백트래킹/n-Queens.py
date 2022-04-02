@@ -4,7 +4,7 @@ def n_queens(col, i):
         if (i == n):
             print(col[1: n + 1])
         else:
-            for j in range(1, n + 1):
+            for j in range(1, n + 1): 
                 col[i + 1] = j
                 n_queens(col, i + 1)
 
