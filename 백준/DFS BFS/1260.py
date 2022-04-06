@@ -26,6 +26,7 @@ visited = [False] * (N + 1)
 
 dfs(graph, V, visited)
 print()
+
 # bfs 정의
 def bfs(graph, start, visited):
     #큐 구현을 위해 deque 라이브러리 사용
