@@ -28,8 +28,8 @@ flag = False
 for i in range(1, n + 1):
     if distance[i] == k:
         print(i)
-        check = True
-if check == False:
+        flag = True
+if flag == False:
     print(-1) 
 
 
