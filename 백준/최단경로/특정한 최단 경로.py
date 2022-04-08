@@ -48,7 +48,6 @@ v2_distance = dijkstra(v2)
 way1 = original_distance[v1] + v1_distance[v2] + v2_distance[n]
 way2 = original_distance[v2] + v2_distance[v1] + v1_distance[n]
 
-if way1 == INF and way2 == INF:
-    print(-1)
-else: 
-    print(min(way1, way2))
+result = min(way1, way2)
+
+print(result if result < INF else -1)
