@@ -20,3 +20,5 @@ def solution(number, k):
     return ''.join(answer)
 
 print(solution("4177252841", 4))
+
+#3221
