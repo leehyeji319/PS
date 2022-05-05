@@ -31,3 +31,54 @@ def solution(booked, unbooked):
         answer.append(queue.get()[1][1])
 
     return answer
+
+
+
+
+## 예약하면 일반 고객보다 먼저 처리
+## 10분간 업무 처리
+
+## 업무 처리 중에 새로 들어오면 예약 확인
+
+from collections import deque
+
+def hmToM(time):
+    hour, minute = list(map(int, time.split(":")))
+    hour = hour * 60
+    return minute + hour
+
+def solution(booked, unbooked):
+    answer = []
+
+    unionList = []
+    for b in booked:
+        time, name = b
+        time = hmToM(time)
+        unionList.append([time, time + 10, True, name])
+
+    for b in unbooked:
+        time, name = b
+        time = hmToM(time)
+        unionList.append([time, time + 10, False, name])
+
+    unionList.sort(key = lambda x : x[0])
+
+    ## 업무를 이제 처리 할거야
+    q = deque(unionList)
+
+    while(len(q) != 1):
+        currentWork = q.popleft()
+        startTime, endTime, book, name = currentWork
+
+        nsT, neT, nb, nn = q[0]
+        if(nb != book and nb == True and nsT in range(startTime, endTime)):
+            q.popleft()
+            answer.append(nn)
+            q.appendleft(currentWork)
+
+        else:
+            answer.append(name)
+
+    answer.append(q[-1][-1])
+
+    return answer
