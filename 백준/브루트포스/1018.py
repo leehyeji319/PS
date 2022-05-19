@@ -1,12 +1,12 @@
 import sys
 
-
 N, M = map(int, input().split())
 color = []
 result = []
 
 for _ in range(N):
     color.append(list(sys.stdin.readline().rstrip()))
+
 
 def findcolor(color):
     count1 = 0
@@ -49,14 +49,13 @@ def findcolor(color):
     arr.append(count1)
     arr.append(count2)
     return min(arr)
-    
 
 
-for i in range(N-7):
-    for j in range(M-7):
-        new_color = color[i:i+8]
+for i in range(N - 7):
+    for j in range(M - 7):
+        new_color = color[i:i + 8]
         for k in range(len(new_color)):
-            new_color[k] = new_color[k][j:j+8]
+            new_color[k] = new_color[k][j:j + 8]
         result.append(findcolor(new_color))
 
 print(min(result))
