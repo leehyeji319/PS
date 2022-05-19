@@ -1,11 +1,5 @@
 T = int(input())
-answer = []
-for i in range(T):
-    arr = list(map(int, input().split()))
-    sum = 0
-    for j in arr:
-        if j % 2 == 1:
-            sum += j
-    answer.append(sum)
-for i in range(len(answer)):
-    print("#"+str(i + 1)+" "+str(answer[i]))
+for t in range(1, T + 1):
+    n = map(int, input().split())
+    answer = sum([i for i in n if i % 2 == 1])
+    print(f"#{t} {answer}")
