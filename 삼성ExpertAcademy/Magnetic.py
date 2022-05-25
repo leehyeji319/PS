@@ -3,22 +3,24 @@ T = 10
 for t in range(1, T + 1):
     N = int(input())
     arr = [list(map(int, input().split())) for _ in range(N)]
-    cnt = 0
-    stack = []
+    answer = 0
     for i in range(N):
-        magnet = []
-        for j in range(N):
-            if arr[j][i] == 1 or arr[j][i] == 2:
-                magnet.append(arr[j][i])
+        magnet = [arr[j][i] for j in range(N) if arr[j][i] == 1 or arr[j][i] == 2]
         stack = []
         for m in magnet:
-            if m == 1:
-                stack.append(1)
-            elif m == 2:
-                if len(stack) == 0:
+            if len(stack) == 0:
+                stack.append(m)
+            else:
+                if stack[-1] == m:
                     continue
-                else:
-                    stack.pop()
-                    cnt += 1
+                elif stack[-1] != m:
+                    stack.append(m)
+        if len(stack) == 1:
+            continue
+        if stack[0] == 2:
+            stack = stack[1:]
+        if stack[-1] == 1:
+            stack = stack[:-1]
+        answer += len(stack) // 2
 
-    print(f"#{t} {cnt}")
+    print(f"#{t} {answer}")
