@@ -7,6 +7,7 @@ for i in range(N):
     a, b = map(int, input().split())
     graph[a].append(b)
     graph[b].append(a)
+print(graph)
 
 for i in range(len(graph)):
     graph[i].sort()
