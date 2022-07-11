@@ -1,6 +1,8 @@
-n = int(input())
+import sys
 
-arr = list(map(int, input().split()))
+n = int(sys.stdin.readline())
+
+arr = list(map(int, sys.stdin.readline().split()))
 result = []
 idx = 1
 for a in range(len(arr)):
