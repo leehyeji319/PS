@@ -1,32 +1,39 @@
-T = 1; 
+T = 10; 
 for t in range (1, T + 1):
     n = int(input())
     ladder = [list(map(int, input().split())) for _ in range(100)]
     answer = 0
-    dx = [1, -1, 0]
-    dy = [0, 0, -1]
-    for i in range(100):
-        for j in range(100):
-            if ladder[i][j] == 2:
-                start_y = i #99
-                start_x = j #57
-                break
+    col = 0
+    row = 99
+    
+ 
+    for j in range(100):
+        if ladder[99][j] == 2:
+            col = j #57
+            break
             
+    # dx = [1, -1, 0]
+    # dy = [0, 0, -1]
+    
     while True:
-        for i in range(3):
-            nx = dx[i] + start_x
-            ny = dy[i] + start_y
+        if row == 0:
+            answer = col
+            break
             
-            if ny == 0:
-                answer = nx
-                print(nx)
-                break
+         # 현재 칸을 0으로 해서 지나온 지점을 check
+        ladder[row][col] = 0
+        if row < 0 or col < 0 or col > 100 or row:
+            continue
+        # 왼쪽 으로 가는 경우
+        if ladder[row][col - 1] == 1:
+            col -= 1
+        # 오른쪽 으로 가는 경우
+        elif ladder[row][col + 1] == 1:
+            col += 1
+        # 위로 가는 경우
+        elif ladder[row - 1][col] == 1:
+            row -= 1
             
-            if ladder[ny][nx] == 1:
-                ladder[start_x][start_y] = 0
-                start_x = nx
-                start_y = ny
-                continue
-        if answer != 0: break
+        
 
     print(f"#{t} {answer}")
