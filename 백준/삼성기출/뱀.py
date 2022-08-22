@@ -9,7 +9,7 @@ graph = [[0] * N for _ in range(N)]
 # 사과 있는 부분 1로 설정
 for _ in range(K):
     r, c = map(int, input().split())
-    graph[r - 1][c - 1] = 1
+    graph[r - 1][c - 1] = 1 #사과
 
 L = int(input())
 # 뱀의 방향 정보 (딕셔너리로)
@@ -19,7 +19,7 @@ for _ in range(L):
     command[int(s)] = d
 
 # 뱀의 몸정보 관리 큐
-snake = deque();
+snake = deque()
 snake.append((0, 0))
 
 # 회전 정보 - 북 동 남 서
@@ -30,7 +30,7 @@ dc = [0, 1, 0, -1]
 current_dir = 1
 # 뱀의 처음 위치(0,0)을 2로 설정
 r, c = 0, 0
-graph[r][c] = 2
+graph[r][c] = 2 #뱀
 
 def turnSnake(next_dir):
     global current_dir
@@ -44,7 +44,8 @@ while True:
     r += dr[current_dir]
     c += dc[current_dir]
 
-    if r < 0 or r >= N or c < 0 or c >= N or (r, c) in snake: #범위체크랑 자기 몸에 부딪히는지 #맨첨에 뱀 몸 부딪히는 조건 안넣엇는데 통과함 머지??
+    # 범위체크랑 자기 몸에 부딪히는지 #맨첨에 뱀 몸 부딪히는 조건 안넣엇는데 통과함 머지??
+    if r < 0 or r >= N or c < 0 or c >= N or (r, c) in snake:
         break
 
     if graph[r][c] == 1: #사과가 있다면
@@ -62,6 +63,7 @@ while True:
             turnSnake(command[time])
     else:
         break
+
 
 print(time)
 # 사과 있는 칸 1  없는 칸 0 뱀2
