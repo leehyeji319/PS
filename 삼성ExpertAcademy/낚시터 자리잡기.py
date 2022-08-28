@@ -1,44 +1,41 @@
 import sys
+from itertools import permutations
+from collections import defaultdict
 
 input = sys.stdin.readline
-from collections import defaultdict
-from itertools import permutations
-
-N = int(input())
-
-players = defaultdict(list)
-for _ in range(N):
-    players_score = list(map(int, input().split()))
-    for idx, score in enumerate(players_score):
-        players[idx + 1].append(score)
-
-max_score = 0
-players_without_1 = [2, 3, 4, 5, 6, 7, 8, 9]
-players_without_1 = list(permutations(players_without_1))
-
-for player_order_without_1 in players_without_1:
-    player_order_without_1 = list(player_order_without_1)
-    player_order = player_order_without_1[:3] + [1] + player_order_without_1[3:]
-
-    next_player_idx = 0
-    score = 0
-    for ining in range(N):
-        out_score = 0
-        ground = [False, False, False]
-        while out_score < 3:
-            result = players[player_order[next_player_idx]][ining]
-
-            if result == 0:
-                out_score += 1
+# 그리디? 브루트 포스 ?
+T = int(input())
+for tc in range(1, T + 1):
+    N = int(input())
+    graph = [[0] * N for _ in range(2)]
+    old_door_people_dict = defaultdict(list)
+    people_len = 0
+    for _ in range(3):
+        a, b = map(int, input().split())
+        old_door_people_dict[a - 1] = [i for i in range(people_len + 1, b + people_len + 1)]  # 딕셔너리로 저장
+        people_len += b
+    # 딕셔너리 뒤집기
+    door_people_dict = {}
+    for key, value in old_door_people_dict.items():
+        for val in value:
+            if val in door_people_dict:
+                door_people_dict[val].append(key)
             else:
-                next_ground = [False] * (result - 1) + [True]
-                ground = next_ground + ground
-                for player in ground[3:]:
-                    if player == True:
-                        score += 1
-                ground = ground[:3]
+                door_people_dict[val] = [key]
 
-            next_player_idx = (next_player_idx + 1) % 9
-    max_score = max(score, max_score)
+    able_people = [0] * people_len
+    for i in range(people_len):
+        able_people[i] = i + 1
+    min_value = int(1e9)
+    able_people += [0] * (N - people_len)
 
-print(max_score)
+    for perm in permutations(able_people):
+        distance = 0
+        perm = list(perm)
+
+        for i in range(N):
+            if perm[i] != 0:
+                distance += abs(door_people_dict[perm[i]][0] - i) + 1
+        min_value = min(min_value, distance)
+
+    print(f"#{tc} {min_value}")

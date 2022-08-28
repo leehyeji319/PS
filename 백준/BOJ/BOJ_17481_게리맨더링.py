@@ -44,6 +44,7 @@ for i in range(1, N // 2 + 1): #반만봐도 됨 왜냐면 어차피 조합 뽑�
         # N이면 다돈거니까 끝
         # 다 돌았는데도 안되면 -1출력
         # print([i for i in range(1, N + 1) if i not in comb])
+        print(comb)
         _sum1, _comb_len1 = bfs(comb)
         _sum2, _comb_len2 = bfs([i for i in range(1, N + 1) if i not in comb])
 
