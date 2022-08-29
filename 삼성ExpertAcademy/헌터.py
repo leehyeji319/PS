@@ -1,7 +1,3 @@
-# bool visit 만들고 그 안에서 true/false로 나눠서
-# 몬스터 방문하면 visit[monster] true로 하고
-# 고객방문이면 abs(customer) 위치가 true인지
-
 from itertools import permutations
 import sys
 
@@ -22,6 +18,7 @@ def calc(perm, total, visited):
     total += (perm[0][1] + perm[0][2])
     for i in range(len(perm) - 1):
         total += (abs(perm[i][1] - perm[i + 1][1]) + abs(perm[i][2] - perm[i + 1][2]))
+
     if result > total:
         result = total
 
@@ -46,6 +43,7 @@ for tc in range(1, T + 1):
 
     for perm in list(permutations(all_info)):
         perm = list(perm)
+        # print(perm)
         visited = [False] * len(monster_info)
         calc(perm, 0, visited)
 

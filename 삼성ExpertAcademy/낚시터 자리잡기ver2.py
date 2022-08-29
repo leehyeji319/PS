@@ -3,7 +3,7 @@ input = sys.stdin.readline
 
 #num: 게이트 위치 번호, angler: 해당 게이트에서 입장하는 낚시꾼의 수
 def entrance_gate(num, angler, r):
-    # ret: 모든 낚시꾼 이동 총 거리, res2: 마지막 낚시꾼이 왼쪽에 입장하고 동일한 거리의 오른쪽에 입장가능한 경우 위치 변환을 위한 변수
+    # ret: 모든 낚시꾼 이동 총 거리, ret2: 마지막 낚시꾼이 왼쪽에 입장하고 동일한 거리의 오른쪽에 입장가능한 경우 위치 변환을 위한 변수
     # dist: 게이트에서 떨어진 정도(좌우 절댓값으로 증가)
     # flag: 좌우로 체크할 변수 (-1, 1)
     ret = 0
@@ -26,13 +26,13 @@ def entrance_gate(num, angler, r):
         if flag < 0 and angler != 0:
             dist += 1
 
-        # 마지막 사람이 왼쪽에 들어간 경우, 오른족에 들어갈 수 있는 경우가 있는지 체크 후 해당 위치 반환
+        # 마지막 사람이 왼쪽에 들어간 경우, 오른에 들어갈 수 있는 경우가 있는지 체크 후 해당 위치 반환
         if flag > 0 and angler == 0:
             x2 = num + (dist * flag)
             # 위 조건을 만족해 오른쪽에 입장한 경우도 체크해야하는 경우
             if 0 <= x2 < N and fishing[x2] == 0:
                 # x는 기존에 왼쪽에 채워진 마지막 낚시꾼 위치, x2는 확인해보아야할 오른쪽 낚시꾼 위치
-                ret2 = [x, x2]
+                ret2 = [x, x2] #왼쪽, 오른쪽
     return ret, ret2
 
 
@@ -66,7 +66,7 @@ def dfs(n, total): #n: 재귀횟수, total: 낚시꾼이 이동한 총 거리
         used[i] = 0
     return
 
-
+############
 T = int(input())
 
 for tc in range(1, T + 1):
@@ -74,7 +74,7 @@ for tc in range(1, T + 1):
     fishing = [0] * N #낚시터에 낚시꾼이 있는지 확인
     info = []
     result = float('inf')
-    used = [0] * 3
+    used = [0] * 3 # 출입문
     
     for n in range(3):
         gate, pcnt = map(int, input().split())
