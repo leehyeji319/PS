@@ -23,10 +23,6 @@ def setting(row, col, d):
         plus += 1 #전선을 놓을때마다 plus += 1
     else:
         return plus
-    # for _ in range(plus):
-    #     graph[_row + dr[d]][_col + dc[d]] = 0
-    #     _row += dr[d]
-    #     _col += dc[d]
     cancel(_row, _col, d, plus)
     return 0
 
@@ -46,11 +42,6 @@ def dfs(now, last, code):
             next = now[:]
             next.append(i)
             dfs(next, i + 1, code + plus)
-            # _r, _c = list(*cores[i])
-            # for _ in range(plus):
-            #     graph[_r + dr[d]][_c + dc[d]] = 0
-            #     _r += dr[d]
-            #     _c += dc[d]
 
             cancel(*cores[i], d, plus)
 
@@ -76,8 +67,6 @@ for tc in range(1, T + 1):
                     cores.append((r, c)) #이미 연결되어있다고 보지 않는 것들 -> 확인할 것들
     max_cores = -1
     min_value = int(1e9)
-    # for i in range(len(cores)):
-    #     print(*cores[i])
     dfs([], 0, 0)
     print(f"#{tc} {min_value}")
 
