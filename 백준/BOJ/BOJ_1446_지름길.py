@@ -5,17 +5,17 @@ input = sys.stdin.readline
 INF = int(1e9)
 N, D = map(int, input().split())
 
-graph = [[] for _ in range(D + 1)]
+board = [[] for _ in range(D + 1)]
 distance = [INF] * (D + 1)
 
 for i in range(D):
-    graph[i].append((i + 1, 1))
+    board[i].append((i + 1, 1))
 
 for _ in range(N):
     f, t, c = map(int, input().split())
     if t > D or (t - f) <= c:
         continue
-    graph[f].append((t, c))
+    board[f].append((t, c))
 
 start, end = 0, D
 
@@ -30,7 +30,7 @@ def dijkstra(start):
         if distance[now] < dist:
             continue
 
-        for i in graph[now]:
+        for i in board[now]:
             cost = dist + i[1]
 
             if cost < distance[i[0]]:

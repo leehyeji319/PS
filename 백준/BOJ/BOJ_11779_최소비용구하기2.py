@@ -5,13 +5,13 @@ INF = int(1e9)
 
 n = int(input())
 m = int(input())
-graph = [[] for _ in range(n + 1)]
+board = [[] for _ in range(n + 1)]
 distance = [INF] * (n + 1)
 
 
 for _ in range(m):
     f, t, c = map(int, input().split())
-    graph[f].append((t, c))
+    board[f].append((t, c))
 start, end = map(int, input().split())
 near_list = [start] * (n + 1) #가장 가까운 노드 기록
 
@@ -23,13 +23,15 @@ def dijkstra(start):
         dist, now = heapq.heappop(q)
         if distance[now] < dist:
             continue
-        for i in graph[now]:
+        for i in board[now]:
             cost = dist + i[1]
             if cost < distance[i[0]]:
                 distance[i[0]] = cost
                 near_list[i[0]] = now
                 heapq.heappush(q, (cost, i[0]))
 dijkstra(start)
+
+print(near_list)
 
 ans = []
 
@@ -44,4 +46,4 @@ ans.reverse()
 print(distance[end])
 print(len(ans))
 for a in ans:
-    print(a, end = " ")
+    print(a, end=" ")

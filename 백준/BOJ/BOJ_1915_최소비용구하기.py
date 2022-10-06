@@ -2,15 +2,15 @@ import heapq
 import sys
 input = sys.stdin.readline
 INF = int(1e9)
-N = int(input()) #도시 개수e
+N = int(input()) #도시 개수
 M = int(input()) #버스 개수
 #정보를 담는 그래프
-graph = [[] for _ in range(N + 1)]
+board = [[] for _ in range(N + 1)]
 distance = [INF] * (N + 1)
 
 for _ in range(M):
     f, t, c = map(int, input().split())
-    graph[f].append((t, c))
+    board[f].append((t, c))
 
 start, end = map(int, input().split())
 
@@ -23,7 +23,8 @@ def dijkstra(start):
 
         if distance[now] < dist:
             continue
-        for i in graph[now]:
+
+        for i in board[now]:
             cost = dist + i[1]
 
             if cost < distance[i[0]]:
