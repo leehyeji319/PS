@@ -1,7 +1,7 @@
 import copy
 
 N, M = map(int, input().split())
-graph = [list(map(int, input().split())) for _ in range(N)]
+board = [list(map(int, input().split())) for _ in range(N)]
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
 direction = {
@@ -15,8 +15,8 @@ direction = {
 cctv = []
 for i in range(N):
     for j in range(M):
-        if graph[i][j] in [1, 2, 3, 4, 5]:
-            cctv.append([graph[i][j], i, j])
+        if board[i][j] in [1, 2, 3, 4, 5]:
+            cctv.append([board[i][j], i, j])
 
 
 def watch(temp_graph, r, c, direction):
@@ -52,5 +52,5 @@ def dfs(graph, depth):
 
 min_value = int(1e9)
 
-dfs(graph, 0)
+dfs(board, 0)
 print(min_value)

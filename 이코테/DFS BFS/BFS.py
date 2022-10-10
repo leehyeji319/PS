@@ -17,7 +17,7 @@ def bfs(graph, start, visited):
                 queue.append(i)
                 visited[i] = True
 
-graph = [
+board = [
     [],
     [2, 3, 8],
     [1, 7],
@@ -33,4 +33,4 @@ graph = [
 visited = [False] * 9
 
 #정의된 BFS 함수 호출
-bfs(graph, 1, visited)
+bfs(board, 1, visited)

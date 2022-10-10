@@ -27,16 +27,16 @@ T = int(input())
 
 for tc in range(1, T + 1):
     N = int(input())
-    graph = [list(map(int, input().split())) for _ in range(N)]
+    board = [list(map(int, input().split())) for _ in range(N)]
     monster_info = []
     person_info = []
     all_info = []
     for i in range(N):
         for j in range(N):
-            if graph[i][j] > 0:
-                monster_info.append([graph[i][j], i, j])
-            elif graph[i][j] < 0:
-                person_info.append([graph[i][j], i, j])
+            if board[i][j] > 0:
+                monster_info.append([board[i][j], i, j])
+            elif board[i][j] < 0:
+                person_info.append([board[i][j], i, j])
 
     result = int(1e9)
     all_info = monster_info + person_info

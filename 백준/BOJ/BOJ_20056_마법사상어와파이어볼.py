@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 N, M, K = map(int, input().split())  # N:격자크기 M:파이어볼개수 K:이동명령 횟수
 direction = {0: (-1, 0), 1: (-1, 1), 2: (0, 1), 3: (1, 1), 4: (1, 0), 5: (1, -1), 6: (0, -1), 7: (-1, -1)}
-graph = [[[] for _ in range(N)] for _ in range(N)]
+board = [[[] for _ in range(N)] for _ in range(N)]
 fireballs = []
 for _ in range(M):
     r, c, m, s, d = map(int, input().split())  # 행 열 질량 속력 방향
@@ -17,15 +17,15 @@ for i in range(K):
         cr, cc, cm, cs, cd = fireballs.pop(0)
         nr = (cr + cs * direction[cd][0]) % N
         nc = (cc + cs * direction[cd][1]) % N
-        graph[nr][nc].append([cm, cs, cd])
+        board[nr][nc].append([cm, cs, cd])
 
     for r in range(N):
         for c in range(N):
-            if len(graph[r][c]) > 1:
+            if len(board[r][c]) > 1:
                 # 질량 속도 홀수갯수 짝수갯수 그좌표볼개수
-                sum_m, sum_s, cnt_odd, cnt_even, cnt = 0, 0, 0, 0, len(graph[r][c])
-                while graph[r][c]:
-                    _m, _s, _d = graph[r][c].pop(0)
+                sum_m, sum_s, cnt_odd, cnt_even, cnt = 0, 0, 0, 0, len(board[r][c])
+                while board[r][c]:
+                    _m, _s, _d = board[r][c].pop(0)
                     sum_m += _m
                     sum_s += _s
                     if _d % 2:
@@ -41,6 +41,6 @@ for i in range(K):
                     for d in nd: #네갈죽 추가
                         fireballs.append([r, c, sum_m // 5, sum_s // cnt, d])
 
-            if len(graph[r][c]) == 1: #하나일때
-                fireballs.append([r, c] + graph[r][c].pop())
+            if len(board[r][c]) == 1: #하나일때
+                fireballs.append([r, c] + board[r][c].pop())
 print(sum(f[2] for f in fireballs))

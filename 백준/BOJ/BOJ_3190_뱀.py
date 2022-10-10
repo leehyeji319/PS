@@ -4,12 +4,12 @@ N = int(input())
 K = int(input())
 time = 0
 # 뱀이 이동할 판
-graph = [[0] * N for _ in range(N)]
+board = [[0] * N for _ in range(N)]
 
 # 사과 있는 부분 1로 설정
 for _ in range(K):
     r, c = map(int, input().split())
-    graph[r - 1][c - 1] = 1 #사과
+    board[r - 1][c - 1] = 1 #사과
 
 L = int(input())
 # 뱀의 방향 정보 (딕셔너리로)
@@ -30,7 +30,7 @@ dc = [0, 1, 0, -1]
 current_dir = 1
 # 뱀의 처음 위치(0,0)을 2로 설정
 r, c = 0, 0
-graph[r][c] = 2 #뱀
+board[r][c] = 2 #뱀
 
 def turnSnake(next_dir):
     global current_dir
@@ -48,17 +48,17 @@ while True:
     if r < 0 or r >= N or c < 0 or c >= N or (r, c) in snake:
         break
 
-    if graph[r][c] == 1: #사과가 있다면
-        graph[r][c] = 2 #뱀늘어나~
+    if board[r][c] == 1: #사과가 있다면
+        board[r][c] = 2 #뱀늘어나~
         snake.append((r, c)) #큐에 몸정보 추가
         # 딕셔너리 키값 = 방향을 전환할 time시간
         if time in command: #전환할 시간이 된다면
             turnSnake(command[time]) #명령으로 회전한다
-    elif graph[r][c] == 0: #사과없으면
-        graph[r][c] = 2 #뱀그냥가
+    elif board[r][c] == 0: #사과없으면
+        board[r][c] = 2 #뱀그냥가
         snake.append((r, c)) #뱀몸추가해
         tr, tc = snake.popleft() #뱀 몸정보 지워주기
-        graph[tr][tc] = 0 #한칸갓으니까 꼬리없애
+        board[tr][tc] = 0 #한칸갓으니까 꼬리없애
         if time in command:
             turnSnake(command[time])
     else:

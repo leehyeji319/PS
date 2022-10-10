@@ -1,7 +1,7 @@
 from collections import deque
 
 n, m = map(int, input().split())
-graph = []
+board = []
 
 #3차원 행렬을 통해 벽의 파괴를 파악, visited[x][y][0]은 벽 파괴가능, [x][y][1]은 불가능
 visited = [[[0] * 2 for _ in range(m)] for _ in range(n)]
@@ -9,7 +9,7 @@ visited[0][0][0] = 1
 
 
 for i in range(n):
-    graph.append(list(map(int, input())))
+    board.append(list(map(int, input())))
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
@@ -29,11 +29,11 @@ def bfs(x, y, z):
             if nx < 0 or ny < 0 or nx >= n or ny >= m:
                 continue
             # 다음 이동할 곳이 벽이고, 벽 파괴기회를 사용하지 않은 경우
-            if graph[nx][ny] == 1 and c == 0:
+            if board[nx][ny] == 1 and c == 0:
                 visited[nx][ny][1] = visited[a][b][0] + 1
                 queue.append((nx, ny, 1))
             # 다음 이동할 곳이 벽이 아니고, 아직 한번도 방문하지 않은 곳이면
-            elif graph[nx][ny] == 0 and visited[nx][ny][c] == 0:
+            elif board[nx][ny] == 0 and visited[nx][ny][c] == 0:
                 visited[nx][ny][c] = visited[a][b][c] + 1
                 queue.append((nx, ny, c))
     return -1

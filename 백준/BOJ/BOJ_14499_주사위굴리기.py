@@ -14,7 +14,7 @@ def roll(command, dice):
 
 
 N, M, R, C, K = map(int, input().split())
-graph = [list(map(int, input().split())) for _ in range(N)]
+board = [list(map(int, input().split())) for _ in range(N)]
 commands = list(map(int, input().split()))
 dr = [0, 0, -1, 1]
 dc = [1, -1, 0, 0]
@@ -30,9 +30,9 @@ for command in commands:
         nc -= dc[command - 1]
         continue
     roll(command, dice)
-    if graph[nr][nc] != 0:
-        dice[-1] = graph[nr][nc]
-        graph[nr][nc] = 0
+    if board[nr][nc] != 0:
+        dice[-1] = board[nr][nc]
+        board[nr][nc] = 0
     else:
-        graph[nr][nc] = dice[-1]
+        board[nr][nc] = dice[-1]
     print(dice[0])

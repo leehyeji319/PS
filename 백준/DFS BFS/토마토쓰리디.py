@@ -2,7 +2,7 @@ from collections import deque
 
 m, n, h = map(int, input().split())
 
-graph = [[list(map(int, input().split())) for _ in range(n)] for _ in range(h)]
+board = [[list(map(int, input().split())) for _ in range(n)] for _ in range(h)]
 
 dx = [-1, 1, 0, 0, 0, 0]
 dy = [0, 0, -1, 1, 0, 0]
@@ -21,14 +21,14 @@ def bfs():
             
             if 0 <= nx < n and 0 <= ny < m and 0 <= nz < h:
                 #높이,x,y 순서
-                if graph[nz][nx][ny] == 0:
-                    graph[nz][nx][ny] = graph[z][x][y] + 1
+                if board[nz][nx][ny] == 0:
+                    board[nz][nx][ny] = board[z][x][y] + 1
                     queue.append([nz, nx, ny])
 
 for i in range(h):
     for j in range(n):
         for k in range(m):
-            if graph[i][j][k] == 1:
+            if board[i][j][k] == 1:
                 queue.append((i, j, k))
 
 bfs()
@@ -38,9 +38,9 @@ result = -2
 for i in range(h):
     for j in range(n):
         for k in range(m):
-            if graph[i][j][k] == 0:
+            if board[i][j][k] == 0:
                 flag = 1
-            result = max(result, graph[i][j][k])
+            result = max(result, board[i][j][k])
             
 if flag == 1:
     print(-1)

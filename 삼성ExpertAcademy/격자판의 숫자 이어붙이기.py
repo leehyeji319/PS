@@ -3,7 +3,7 @@
 def dfs(idx, row, col, num):
     global dr
     global dc
-    num += graph[row][col]
+    num += board[row][col]
     if idx == 6:
         result.append(num)
         return
@@ -18,7 +18,7 @@ for tc in range(1, T + 1):
 
     dr = [-1, 1, 0, 0]
     dc = [0, 0, -1, 1]
-    graph = [list(map(str, input().split())) for _ in range(4)]
+    board = [list(map(str, input().split())) for _ in range(4)]
     result = []
     for r in range(4):
         for c in range(4):

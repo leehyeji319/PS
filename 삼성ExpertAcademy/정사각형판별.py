@@ -36,13 +36,13 @@ def check_square(board, cnt, N):
 
 for t in range(1, T + 1):
     N = int(input())
-    graph = [list(input()) for _ in range(N)]
+    board = [list(input()) for _ in range(N)]
     # 0으로 채운 배열 선언
     board = [[0] * N for _ in range(N)]
     cnt = 0
     for i in range(N):
         for j in range(N):
-            if graph[i][j] == '#':
+            if board[i][j] == '#':
                 board[i][j] = 1
                 cnt += 1
             else:

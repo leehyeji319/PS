@@ -8,14 +8,14 @@ INF = int(1e9)
 
 n, e = map(int, input().split())
 
-graph = [[] for _ in range(n + 1)]
+board = [[] for _ in range(n + 1)]
 
 #노드 간선 정보
 for _ in range(e):
     a, b, c = map(int, input().split())
     #무방향 그래프
-    graph[a].append((b, c))
-    graph[b].append((a, c))
+    board[a].append((b, c))
+    board[b].append((a, c))
     
 #반드시 거쳐야하는 노드 정보
 v1, v2 = map(int, input().split())
@@ -33,7 +33,7 @@ def dijkstra(start):
         if distance[now] < dist:
             continue
         #현재 노드와 연결된 다른 인접한 노드를 확인
-        for i in graph[now]:
+        for i in board[now]:
             cost = dist + i[1]
             #현재 노드를 거쳐서, 다른 노드로 이동하는 거리가 더 짧은 경우
             if cost < distance[i[0]]:

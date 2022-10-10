@@ -1,11 +1,11 @@
 from collections import deque
 n = int(input())
 
-graph = []
+board = []
 
 for _ in range(n):
-    graph.append(list(map(int, input())))
-print(graph)
+    board.append(list(map(int, input())))
+print(board)
 
 
 dx = [-1, 1, 0, 0]
@@ -39,8 +39,8 @@ def bfs(graph, x, y):
 cnt = []
 for i in range(n):
     for j in range(n):
-        if graph[i][j] == 1:
-            cnt.append(bfs(graph, i, j))
+        if board[i][j] == 1:
+            cnt.append(bfs(board, i, j))
 cnt.sort()
 for i in cnt:
     print(i)

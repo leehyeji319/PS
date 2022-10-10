@@ -9,7 +9,7 @@ def dfs(graph, v, visited):
             dfs(graph, i, visited)
 
 #각 노드가 연결된 정보를 리스트 자료형으로 표현(2차원 리스트)
-graph = [
+board = [
     [],
     [2, 3, 8],
     [1, 7],
@@ -25,4 +25,4 @@ graph = [
 visited = [False] * 9
 
 # 정의된 DFS 함수 호출
-dfs(graph, 1, visited)
+dfs(board, 1, visited)

@@ -25,10 +25,10 @@ def rotation_270(graph, N):
 T = int(input())
 for t in range(1, T + 1):
     N = int(input())
-    graph = [list(map(int, input().split())) for _ in range(N)]
-    graph_90 = rotation_90(graph, N)
-    graph_180 = rotation_180(graph, N)
-    graph_270 = rotation_270(graph, N)
+    board = [list(map(int, input().split())) for _ in range(N)]
+    graph_90 = rotation_90(board, N)
+    graph_180 = rotation_180(board, N)
+    graph_270 = rotation_270(board, N)
     print(f"#{t}")
     for i in range(N):
         for j in range(N):

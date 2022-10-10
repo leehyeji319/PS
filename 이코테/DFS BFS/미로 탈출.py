@@ -2,9 +2,9 @@ from collections import deque
 
 n, m = map(int, input().split())
 
-graph = []
+board = []
 for i in range(n):
-    graph.append(list(map(int, input())))
+    board.append(list(map(int, input())))
 
 #이동할 네 방향 
 dx = [-1, 1, 0, 0]
@@ -25,14 +25,14 @@ def bfs(x, y):
             if nx < 0 or ny < 0 or nx >= n or ny >= m:
                 continue
             #벽인 경우 무시
-            if graph[nx][ny] == 0:
+            if board[nx][ny] == 0:
                 continue
             #해당 노드 처음 방문할때만 최단 거리 기록
-            if graph[nx][ny] == 1:
-                graph[nx][ny] = graph[x][y] + 1
+            if board[nx][ny] == 1:
+                board[nx][ny] = board[x][y] + 1
                 queue.append((nx, ny))
     
     #가장 오른쪽 아래까지의 최단 거리 반환
-    return graph[n - 1][m - 1]
+    return board[n - 1][m - 1]
 
 print(bfs(0,0))

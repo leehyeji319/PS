@@ -26,15 +26,15 @@ def bfs(graph, a, b):
 
 
 n = int(input())
-graph = []
+board = []
 for i in range(n):
-    graph.append(list(map(int, input())))
+    board.append(list(map(int, input())))
 
 cnt = []
 for i in range(n):
     for j in range(n):
-        if graph[i][j] == 1:
-            cnt.append(bfs(graph, i, j))
+        if board[i][j] == 1:
+            cnt.append(bfs(board, i, j))
 
 cnt.sort()
 print(len(cnt))

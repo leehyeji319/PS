@@ -2,14 +2,14 @@ from collections import deque
 
 N, M, V = map(int, input().split())
 
-graph = [[] for _ in range(N + 1)]
+board = [[] for _ in range(N + 1)]
 for i in range(M):
     a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
+    board[a].append(b)
+    board[b].append(a)
 
-for i in range(len(graph)):
-    graph[i].sort()
+for i in range(len(board)):
+    board[i].sort()
 
 # DFS 구현하기
 # index로 받아오기
@@ -24,7 +24,7 @@ def dfs(graph, v, visited):
     
 visited = [False] * (N + 1)
 
-dfs(graph, V, visited)
+dfs(board, V, visited)
 print()
 
 # bfs 정의
@@ -46,4 +46,4 @@ def bfs(graph, start, visited):
 
 visited = [False] * (N + 1)
 
-bfs(graph, V, visited)
+bfs(board, V, visited)

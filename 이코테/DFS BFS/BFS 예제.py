@@ -2,15 +2,15 @@ from collections import deque
 
 N, M, V = map(int, input().split())
 
-graph = [[] for _ in range(N + 1)]
+board = [[] for _ in range(N + 1)]
 for i in range(N):
     a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
-print(graph)
+    board[a].append(b)
+    board[b].append(a)
+print(board)
 
-for i in range(len(graph)):
-    graph[i].sort()
+for i in range(len(board)):
+    board[i].sort()
 
 
 # bfs 예제 
@@ -31,4 +31,4 @@ def bfs(graph, start, visited):
                 visited[i] = True
 
 visited = [False] * (N + 1)
-bfs(graph, V, visited)
+bfs(board, V, visited)

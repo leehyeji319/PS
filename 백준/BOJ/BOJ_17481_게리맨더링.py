@@ -7,13 +7,13 @@ input = sys.stdin.readline
 N = int(input())
 people_size = list(map(int, input().split()))
 # print(people_size)
-graph = [[] for i in range(N + 1)]
+board = [[] for i in range(N + 1)]
 
 # 인접리스트에 넣기
 for i in range(1, N + 1):
     l = list(map(int, input().split()))
     for j in range(1, len(l)):
-        graph[i].append(l[j])
+        board[i].append(l[j])
 
 # 조합할숫자
 comb_num = [int(i) for i in range(1, N + 1)]
@@ -23,12 +23,12 @@ def bfs(comb):
     # 정점연결할수잇는지확인
     start = comb[0]
     queue = deque([start])
-    visited = set([start])
+    visited = {start}
     _sum = 0
     while queue:
         v = queue.popleft()
         _sum += people_size[v - 1] #사람 수 더해주기
-        for i in graph[v]:
+        for i in board[v]:
             if i not in visited and i in comb:
                 queue.append(i)
                 visited.add(i)

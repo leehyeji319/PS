@@ -1,7 +1,7 @@
 # 행 row 열 column
 columns = 3
 rows = 2
-graph = [[0] * columns for i in range(rows)]
+board = [[0] * columns for i in range(rows)]
 graph1 = [[] * columns for i in range(rows)] #빈배열 생성
 
 

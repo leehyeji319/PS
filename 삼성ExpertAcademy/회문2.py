@@ -21,10 +21,10 @@ def check_palindrome(s):
 
 for t in range(1, T + 1):
     N = int(input())
-    graph = [input() for _ in range(100)]
-    graph_90 = rotation_90(graph)
+    board = [input() for _ in range(100)]
+    graph_90 = rotation_90(board)
     MAX = 0
-    for s in graph:
+    for s in board:
         if MAX < check_palindrome(s):
             MAX = check_palindrome(s)
     for s in graph_90:

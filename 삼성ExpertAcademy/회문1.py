@@ -21,11 +21,11 @@ def rotation_90(graph):
 
 for t in range(1, T + 1):
     N = int(input())
-    graph = [list(input()) for _ in range(8)]
+    board = [list(input()) for _ in range(8)]
     if N == 1:
         print(f"#{t} {64}")
         continue
     else:
-        answer = check_palindrome(graph, N) + check_palindrome(rotation_90(graph), N)
+        answer = check_palindrome(board, N) + check_palindrome(rotation_90(board), N)
 
     print(f"#{t} {answer}")
