@@ -1,21 +1,8 @@
 import sys
 input = sys.stdin.readline
 
-def dfs(graph, v, visited):
-    global ans
 
-    if v == t2:
-        return
-
-    visited[v] = True
-
-    for i in graph[v]:
-        if not visited[i]:
-            ans += 1
-            dfs(graph, i, visited)
-
-
-N = int(input())
+N = int(input()) # 노드 수
 t1, t2 = map(int, input().split())
 L = int(input()) # 간선 수
 
@@ -31,8 +18,17 @@ for _ in range(L):
 ans = 0
 
 
+def dfs(graph, v, visited):
+    if v == t2:
+        return
+
+    visited[v] = True
+    global ans
+    for i in graph[v]:
+        if not visited[i]:
+            ans += 1
+            dfs(graph, i, visited)
+
 dfs(graph, t1, visited)
 
-if ans == 0:
-    print(-1)
-else: print(ans)
+print(ans)
