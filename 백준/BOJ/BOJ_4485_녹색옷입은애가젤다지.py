@@ -10,7 +10,7 @@ def dijkstra():
     q = []
     # 시작 가격, 시작 r, c
     heapq.heappush(q, (graph[0][0], 0, 0))
-    distance[0][0] = graph[0][0]
+    distance[0][0] = 0
 
     while q:
         dist, r, c = heapq.heappop(q)
@@ -18,6 +18,9 @@ def dijkstra():
         if r == N - 1 and c == N - 1:
             print(f"Problem {count}: {distance[r][c]}")
             break
+
+        if distance[r][c] > dist:
+            continue
 
         for d in range(4):
             nr = r + dr[d]
