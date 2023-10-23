@@ -24,7 +24,7 @@ def solution(m, musicinfos):
         playing_time = abs((int(start_time.split(":")[0]) * 60 + int(start_time.split(":")[1])) - (int(end_time.split(":")[0]) * 60 + int(end_time.split(":")[1])))
         if len(music_note) <= playing_time:
             real_music_note = ""
-            for i in range(playing_time // len(music_note)):
+            for j in range(playing_time // len(music_note)):
                 real_music_note += music_note
             real_music_note += music_note[:playing_time % len(music_note)]
         else:
@@ -33,10 +33,12 @@ def solution(m, musicinfos):
         if m in real_music_note:
             able_music.append([playing_time, i, music_name])
 
-    able_music.sort(reverse=True)
-
+    able_music.sort(key=lambda x: (-x[0], x[1]))
+    print(able_music)
     if len(able_music) == 0:
         return "(None)"
     else:
         return able_music[0][2]
-print(solution("ABC", ["12:00,12:14,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]))
+    
+
+print(solution("ABC",  ["12:00,12:14,HELLO,CDEFGAB", "13:00,13:14,WORLD,ABCDEF"]))
