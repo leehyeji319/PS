@@ -24,7 +24,7 @@ def solution(board):
             r, c = q.popleft()
 
             if board[r][c] == 'G':
-                return visited[r][c]
+                return visited[r][c] - 1
             
             for d in range(4):
                 nr, nc = r, c
@@ -41,10 +41,6 @@ def solution(board):
                     q.append([nr,nc])
         return -1 
     
-    answer = bfs()
-    if answer > 0:
-        answer -= 1
-    
-    return answer
+    return bfs()
 
 print(solution(["...D..R", ".D.G...", "....D.D", "D....D.", "..D...."]))
